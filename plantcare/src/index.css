@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tema kebun: diganti lewat atribut data-theme pada <html> */
+:root { --card: #fff; --ink: #1f2d22; --muted: #5d6b60; }
+[data-theme='hutan'] { --bg: #e8f3e4; --accent: #2f7d3a; --head: linear-gradient(135deg, #2f7d3a, #7cc276); }
+[data-theme='bunga'] { --bg: #fdeef3; --accent: #c93d82; --head: linear-gradient(135deg, #d6458a, #f5b84a); }
+[data-theme='gurun'] { --bg: #fbf0dc; --accent: #b8691f; --head: linear-gradient(135deg, #c27a2c, #e8c06a); }
+@media (prefers-color-scheme: dark) {
+  :root { --card: #26302a; --ink: #eef3ec; --muted: #aab8ad; }
+  [data-theme='hutan'] { --bg: #142018; }
+  [data-theme='bunga'] { --bg: #2a1620; }
+  [data-theme='gurun'] { --bg: #2a2012; }
+}
+
+body { margin: 0; font-family: Nunito, system-ui, sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+
+@layer components {
+  .card { background: var(--card); @apply rounded-2xl shadow-md; }
+  .btn { background: var(--accent); @apply text-white rounded-xl px-4 py-2 font-bold; }
+  .btn-outline { border: 2px solid var(--accent); color: var(--accent); @apply rounded-xl px-3 py-1.5 font-bold; }
+  .field { background: var(--card); color: var(--ink); border: 1px solid #9aa89d; @apply rounded-lg px-2 py-1.5 w-full; }
+}
